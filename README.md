@@ -26,7 +26,7 @@ Centipede processing stacks consist of a number of components, such as:
 
 ### What is the network protocol?
 
-Metadata: superset of http://dublincore.org/documents/dcmi-terms/ 
+Metadata: superset of (Dublin Core)[http://dublincore.org/documents/dcmi-terms/].
 
 HTTP API: transform (sync)
     
@@ -49,7 +49,7 @@ HTTP API: transform (sync)
     ]
 }
 
-LOADER Service
+### What the document manager does
 
     POST /api/post-file ...
     POST /api/post-url ... 
@@ -61,10 +61,17 @@ LOADER Service
     POST /api/collection/<collection_id>/<document_id>
 
 
-
+### What the pipeline manager does
 
 pipeline orchestrator 
 
-    * define a pipeline 
-    * define source documents
-    * run jobs and monitor progress
+* define a pipeline 
+* define source documents
+* run jobs and monitor progress
+
+
+## References
+
+* [docstash](https://github.com/pudo/docstash) - non S3 document store thingie 
+* [docpipe](https://github.com/pudo/docpipe) - centralized pipeline manager
+* [What is a document](http://people.ischool.berkeley.edu/~buckland/whatdoc.html)
