@@ -1,20 +1,32 @@
+# Centipede
 
-pipeline transforms
+A centipede is a de-centralized pipeline for processing documents. It consists of many stages, which may perform tasks such as downloading files, extracting texts, detecting language and encoding or indexing a document to a search index.
 
-* http get
-* entity extraction
-* text extraction 
-* html cleaning 
-* language / encoding detection
-* scoring 
-* elasticsearch indexing 
-* filtering
-* aggregation (?) / reduce
 
+## Components
+
+Centipede processing stacks consist of a number of components, such as: 
+
+* A document manager, which can store documents on S3
+* A pipeline manager, which iterates over documents and executes each stage of the pipeline for each document. 
+* A pipeline stage, i.e. a web service which receives a document from the pipeline manager and performs some operation on it.
+
+
+### Examples of Pipeline Stages
+
+* HTTP GET
+* Language/Encoding detection
+* Entity extraction
+* Text extraction 
+* HTML cleaning 
+* Scoring 
+* ElasticSearch indexing 
+* Filtering
+* Aggregation (?) / reduce
+
+### What is the network protocol?
 
 Metadata: superset of http://dublincore.org/documents/dcmi-terms/ 
-
-
 
 HTTP API: transform (sync)
     
@@ -36,7 +48,6 @@ HTTP API: transform (sync)
         {"..."}
     ]
 }
-
 
 LOADER Service
 
