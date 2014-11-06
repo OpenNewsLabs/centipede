@@ -2,6 +2,15 @@
 
 A centipede is a de-centralized pipeline for processing documents. It consists of many stages, which may perform tasks such as downloading files, extracting texts, detecting language and encoding or indexing a document to a search index.
 
+## Running
+
+Server:
+
+    Not yet implemented
+
+Background tasks:
+
+    $ celery -A uploader worker --loglevel=info --logfile=log/celery.log
 
 ## Components
 
