@@ -2,7 +2,7 @@ import uuid
 import boto
 from boto.exception import S3ResponseError
 from boto.s3.key import Key
-
+from boot import logger
 
 BUCKET_NAME = 'centipede.codingnews.info'
 
@@ -28,11 +28,16 @@ class Uploader(object):
         k = Key(self.bucket)
         k.key = self.project_id + "/" + filename
         k.set_contents_from_filename(filename)
+
+        logger.info("%s uploaded" % filename)
         return filename
 
     def _get_bucket(self):
         try:
             bucket = self.conn.get_bucket(BUCKET_NAME)
         except S3ResponseError:
-            bucket = self.conn.create_bucket(BUCKET_NAME)
+            try:
+                bucket = self.conn.create_bucket(BUCKET_NAME)
+            except Exception as e:
+                logger.error("Can not create bucket: %s", e)
         return bucket
