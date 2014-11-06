@@ -1,0 +1,10 @@
+# Python things
+*.py[co]
+*.egg*
+
+# Logs
+*.log
+
+# OSX Things
+.DS_Store
+._*
