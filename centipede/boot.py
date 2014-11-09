@@ -1,8 +1,12 @@
 import logging
+
+from flask import Flask
 from celery import Celery
 
 
-centipede_app = Celery('tasks', broker='redis://localhost:6379/5')
+app = Flask(__name__)
+
+celery = Celery('tasks', broker='redis://localhost:6379/5')
 
 logging.basicConfig(
     filename='log/centipede.log',

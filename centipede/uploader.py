@@ -2,7 +2,8 @@ import uuid
 import boto
 from boto.exception import S3ResponseError
 from boto.s3.key import Key
-from boot import logger, centipede_app
+from boot import logger
+from boot import celery as app
 
 BUCKET_NAME = 'centipede.codingnews.info'
 
@@ -43,7 +44,7 @@ class Uploader(object):
         return bucket
 
 
-@centipede_app.task
+@app.task
 def upload(files, project_id=None):
     uploader = Uploader(project_id)
     uploader.upload_bucket(files)
